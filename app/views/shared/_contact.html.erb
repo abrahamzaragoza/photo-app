@@ -1,0 +1,19 @@
+<article class="col-sm-12 col-md-6">
+  <%= form_tag(send_email_path, class: 'col') do %>
+    <div class="form-label-group">
+      <label for="name">Name</label>
+      <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Name' %>
+    </div>
+
+    <div class="form-label-group">
+      <label for="email">Email Address</label>
+      <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'email address' %>
+    </div>
+
+    <div class="form-label-group">
+      <label for="message">Comments</label>
+      <%= text_area_tag 'message', nil, class: 'form-control', rows: 3, placeholder: 'comments' %>
+    </div>
+    <%= submit_tag nil, class: 'btn btn-primary' %>
+  <% end %>
+</article>
