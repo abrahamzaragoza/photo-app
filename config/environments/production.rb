@@ -120,7 +120,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {
-    :host => 'https://btt-photo-app-z.herokuapp.com/',
+    :host => 'btt-photo-app-z.herokuapp.com/',
     :protocol => 'https'
   }
 end
