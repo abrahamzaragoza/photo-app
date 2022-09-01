@@ -80,3 +80,43 @@ Add js to be precompiled in production:
 
 Remove all the favicon tags:
 > at application.html.erb
+
+### Adding Mailer
+
+Add mailer to heroku project, using the free tier.
+
+```
+heroku addons:create mailgun:starter
+```
+
+Add SMTP config:
+> at environment.rb
+
+```
+ActionMailer::Base.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'yourapp.heroku.com',
+  :authentication => :plain,
+}
+ActionMailer::Base.delivery_method = :smtp
+```
+
+> at development.rb
+
+```
+config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+```
+
+> at production.rb
+
+```
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = {
+    :host => 'yourherokuapp.herokuapp.com/',
+    :protocol => 'https'
+  }
+```
