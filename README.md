@@ -120,3 +120,47 @@ config.action_mailer.default_url_options = {
     :protocol => 'https'
   }
 ```
+
+### Adding Stripe
+
+Add gem
+
+```
+gem 'stripe'
+```
+
+Add stripe credentials
+
+```
+stripe:
+  publisheable_key: EXAMPLE334424141
+  secret_test_key: EXAMPLE35135135613513
+```
+
+Create initializer:
+> stripe.rb
+
+```
+Rails.configuration.stripe = {
+  :publishable_key => ENV['STRIPE_TEST_PUBLISHABLE_KEY'],
+  :secret_key => ENV['STRIPE_TEST_SECRET_KEY']
+}
+
+Stripe.api_key = Rails.application.credentials.stripe[:secret_test_key]
+```
+
+Create Payment model
+
+```
+rails generate model Payment email:string token:string user_id:integer
+```
+
+Run migration.
+
+Set relations between payment and user.
+
+Add payment attributes to user.
+
+```
+accepts_nested_attributes_for :payment
+```
