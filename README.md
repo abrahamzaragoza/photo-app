@@ -193,3 +193,34 @@ Create credit_card_form.js.
 Create Custom Devise Registration Controller and add it to routes.rb
 
 Remove Turbolinks from project.
+
+### Adding Images
+
+Add gems
+
+```
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+```
+
+Generate Image Scaffold & migrate
+
+```
+rails g scaffold Image name:string picture:string user:references
+rake db:migrate
+```
+
+Add bootstrap to Images views
+
+```
+rails g bootstrap:themed Images
+```
+
+Generate uploader:
+
+```
+rails g uploader Picture
+```
+
+Update image/new form.
