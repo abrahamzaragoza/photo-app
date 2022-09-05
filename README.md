@@ -164,3 +164,30 @@ Add payment attributes to user.
 ```
 accepts_nested_attributes_for :payment
 ```
+
+Add Stripe JS to App:
+> application.html.erb
+
+```
+<%= javascript_include_tag "https://js.stripe.com/v2/" %>
+```
+
+Add PublishableKey to New Form:
+> new.html.erb
+
+```
+<script language="Javascript">
+  Stripe.setPublishableKey("<%= Rails.application.credentials[:stripe][:publishable_test_key] %>");
+</script>
+```
+
+Update registration form to 'cc_form' class:
+> new.html.erb
+
+```
+html: { role: "form", class: 'cc_form' }
+```
+
+Create credit_card_form.js.
+
+Create Custom Devise Registration Controller and add it to routes.rb
