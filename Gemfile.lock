@@ -206,11 +206,9 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.4)
+    stripe (7.1.0)
     thor (1.2.1)
     tilt (2.0.11)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     twitter-bootstrap-rails (5.0.0)
       actionpack (>= 5.0, < 8.0)
       execjs (~> 2.7)
@@ -264,7 +262,7 @@ DEPENDENCIES
   selenium-webdriver (>= 4.0.0.rc1)
   spring
   sqlite3 (~> 1.4)
-  turbolinks (~> 5)
+  stripe
   twitter-bootstrap-rails
   tzinfo-data
   web-console (>= 4.1.0)
