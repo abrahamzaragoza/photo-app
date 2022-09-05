@@ -191,3 +191,5 @@ html: { role: "form", class: 'cc_form' }
 Create credit_card_form.js.
 
 Create Custom Devise Registration Controller and add it to routes.rb
+
+Remove Turbolinks from project.
